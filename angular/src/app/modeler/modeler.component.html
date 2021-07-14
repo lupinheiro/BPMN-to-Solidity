@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="panel-group">
+    <input type='file' class="btn btn-default navbar-btn" single (change)='openFile($event)'>
+    <button class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" (click)="validateName()">Guardar</button>
+    <button class="btn btn-default navbar-btn" (click)="goToDashborad()"> Apagar </button>
+  </div>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p ng-bind="modelText"> {{ modelText }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="goToDashborad()" data-dismiss="modal"> OK </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<h4 class="panel-title">
+  <a data-toggle="collapse" href="#collapse10"> <strong> ProjetoIV - Luís Alonso Pinheiro - 17506 </strong> </a>
+  <img src="assets/transferir.jpeg" height="100px">
+  <div id="collapse10" class="panel-collapse collapse">
+    <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-2">
+            <strong>Coordenador: Prof. António Miguel Ribeiro dos Santos Rosado da Cruz</strong>
+          </div>
+          <div class="col-lg-2">
+            <strong>Engenharia Informática 2020/2021</strong>
+          </div>
+          <div class="col-lg-2">
+            <strong>Instituto Politécnico de Viana do Castelo</strong>
+          </div>
+          <div class="col-lg-2">
+            <strong>Escola Superior de Tecnologia e Gestão</strong>
+          </div>
+        </div>
+      </div>
+</div>
+</h4>
+<div id="canvas"></div>
+<div id="js-properties-panel"></div>

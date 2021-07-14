@@ -1,0 +1,291 @@
+<div class="container-fluid">
+  <div class="navbar-header">
+  </div>
+  <div class="panel-group">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <strong> 1º Configuração: Operações de Registro </strong>
+            </h4>
+        
+        
+            <div class="panel-body">
+                <div class="row">
+                  <div class="col-lg-2">
+                    <button class="btn btn-success" (click)="createProcessRegistry()"> Criar Registro </button>
+                  </div>
+                  <div class="col-lg-5">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-primary" (click)="loadProcessRegistry()">Carregar Registro </button>
+                      </span>
+                      <input type="text" class="form-control" [(ngModel)]="registryAddress" placeholder="Registry address ou ID no Repositorio">
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+          <h4 class="panel-title">
+              <strong> 2º Processo de Negócios </strong>
+          </h4>
+      
+          <div class="panel-body">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <button class="btn btn-success" (click)="openModeler()"> Adicionar Modelo </button>
+                  </div>
+                  <div class="row">
+                    <hr class="h4"> 
+                </div>
+                  <div class="col-lg-4">
+                      <div class="input-group">
+                          <span class="input-group-btn">
+                              <button type="submit" class="btn btn-info" (click)="searchElement()"> Procurar Modelos </button>
+                          </span>
+                          <input type="text" class="form-control" [(ngModel)]="toSearch" placeholder="Procurar">
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <hr>
+              </div>
+              
+        
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <strong> 3º Binding Policy: </strong>
+                </h4>
+            
+            
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                          <div class="input-group">
+                              <span class="input-group-btn">
+                                <button class="btn btn-success" (click)="sendResourceModel()"> Executar Binding Policy </button>
+                              </span>
+                              <input type='file' class="btn btn-info" single (change)='openFile($event)'>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <hr class="h4"> 
+                  </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                          <label for="comment">Binding Policy a Executar:</label>
+                          <textarea class="form-control" rows="6" [(ngModel)]="bindingPolicy"></textarea>
+                         </div>
+                    </div>
+                    <div class="row">
+                      <hr class="h4"> 
+                  </div>
+                    <div class="row">
+                      <hr>
+                      <div class="col-lg-5">
+                          <input type="text" class="form-control" [(ngModel)]="roleToQuery" placeholder="Nome Função">
+                      </div>
+                      <div class="col-lg-5"> 
+                        <input type="text" class="form-control" [(ngModel)]="pCaseQuery" placeholder="Processo Associado">
+                      </div>
+                      <div class="col-lg-2">
+                          <button type="submit" class="btn btn-info" (click)="findRoleState()"> Estado do Binding </button>
+                      </div>
+                  </div>
+                  <hr class="h4"> 
+                  <div class="row">
+                    <div class="container-fluid">
+                      <div class="panel panel-success">
+                      <div class="panel-heading"> Nomear / Libertar</div>
+                      <div class="panel-body">
+                        <div class="col-lg-4">
+                          <input type="text" class="form-control" [(ngModel)]="nominatorRole" placeholder="Função do Nomeador">
+                        </div>
+                        <div class="col-lg-4">
+                          <input type="text" class="form-control" [(ngModel)]="nomineeRole" placeholder="Função do Nomeado">
+                        </div>
+                        <div class="col-lg-4">
+                          <input type="text" class="form-control" [(ngModel)]="procesCase" placeholder="Processo Associado">
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <hr>
+                      </div>
+                        <div class="col-lg-4">
+                          <input type="text" class="form-control" [(ngModel)]="nominatorNAddress" placeholder="Address Nomeador">
+                        </div>
+                        <div class="col-lg-4">
+                          <input type="text" class="form-control" [(ngModel)]="nomineeNAddress" placeholder="Address Nomeado">
+                        </div>
+                        <div class="col-lg-4">
+                            <button type="submit" class="btn btn-success" (click)="nominate()"> Nomear </button>
+                        </div>
+                        <div class="row">
+                          <hr class="h4"> 
+                      </div>
+                        <div class="col-lg-4">
+                          <input type="text" class="form-control" [(ngModel)]="nominatorRAddress" placeholder="Releaser Address">
+                        </div>
+                        <div class="col-lg-4">
+                            <button type="submit" class="btn btn-danger" (click)="release()"> Libertar </button>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="row">
+                      <hr class="h4"> 
+                  </div>
+                
+                </div>
+    </div>
+
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <strong> 4º Associar Binding Policy e Processo: </strong>
+                    </h4>
+
+
+              <div class="panel-body">
+                  <div class="row">
+                    <div class="col-lg-5">
+                      <input type="text" class="form-control" [(ngModel)]="rootProcess" placeholder="Process ID">
+                    </div>
+                    <div class="row">
+                      <hr class="h4"> 
+                    </div>
+                    <div class="col-lg-5">
+                      <input type="text" class="form-control" [(ngModel)]="policyId" placeholder="Policy ID">
+                    </div>
+                    <div class="row">
+                      <button type="submit" class="btn btn-info" (click)="createTaskRole()"> Relacionar</button>
+                    </div>
+                  </div>
+
+                </div>
+                  </div>
+              </div>
+
+
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                <h4 class="panel-title">
+                    <strong> 5º Processos: </strong>
+                </h4>
+              
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-lg-2">
+                              <span class="label label-info"> Quem Inicia O Processo => </span>
+                          </div>
+                          <div class="col-lg-5">
+                              <input type="text" class="form-control" [(ngModel)]="caseCreatorRole" placeholder="Criador do Processo">
+                          </div>
+                          <div class="col-lg-5">
+                              <input type="text" class="form-control" [(ngModel)]="caseCreator" placeholder="Address do Criador">
+                          </div>
+                          <div class="row">
+                            <hr>
+                        </div>
+                          <div class="row">
+                            <hr>
+                        </div>
+                    
+                      </div>
+                      <div class="row">
+                        <hr class="h4"> 
+                      </div>
+                      
+                    
+                    <div class="row">
+                      <hr class="h4"> 
+                    </div>
+                      <div class="row">
+                          <div id="canvas"></div>
+                          <div>
+                              <div class="panel-group" id="accordion1">
+                                <div class="panel panel-default" *ngFor="let proc of processStorage.processes">
+                                  <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                      <a data-toggle="collapse" data-parent="#accordion1" [attr.href]="'#'+proc.id">{{proc.name}}
+                                      </a>
+                                      <div class="pull-right">
+                                        <button class="btn btn-success btn-xs" (click)="createInstance(proc.id)"> Criar Instancia</button>
+                                        <button class="btn btn-info btn-xs" (click)="processStorage.updateInstances(proc.id)"> Atualizar Instancias</button>
+                                      </div>
+                                    </h4>
+                                  </div>
+                                  <div [attr.id]="proc.id" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                      <div class="panel-group" id="accordion21">
+                                        <div class="panel">
+                                          <a data-toggle="collapse" data-parent="#accordion21" [attr.href]="'#'+proc.id+'_solidity'">Solidity &raquo;</a>
+                                          <div [attr.id]="proc.id+'_solidity'" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                              <div>
+                                                <pre style="max-height: 30em;"><code class="language-javascript" [innerHtml]="getSolidity(proc)"></code></pre>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="panel">
+                                          <a data-toggle="collapse" data-parent="#accordion21" [attr.href]="'#'+proc.id+'_instances'">Instancias &raquo;</a>
+                                          <div [attr.id]="proc.id+'_instances'" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                              <div *ngFor="let instance of processStorage.getInstance(proc.id)" (click)="openViewer(proc.id, instance)">{{instance}}</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                            </div>
+                      </div>      
+                  </div>
+                        </div>
+            </div>
+            
+          </div>
+      
+
+      
+        <div class="panel-heading">
+          <h4 class="panel-title">
+              <strong> ProjetoIV - Luís Alonso Pinheiro - 17506 </strong>
+              <img src="assets/transferir.jpeg" height="100px">
+              
+                <div class="panel-body">
+                    <div class="row">
+                      <div class="col-lg-2">
+                        <strong>Coordenador: Prof. António Miguel Ribeiro dos Santos Rosado da Cruz</strong>
+                      </div>
+                      <div class="col-lg-2">
+                        <strong>Engenharia Informática 2020/2021</strong>
+                      </div>
+                      <div class="col-lg-2">
+                        <strong>Instituto Politécnico de Viana do Castelo</strong>
+                      </div>
+                      <div class="col-lg-2">
+                        <strong>Escola Superior de Tecnologia e Gestão</strong>
+                      </div>
+                    </div>
+                  </div>
+          </h4>
+      </div>
+</div>
+
+
+
+

@@ -1,0 +1,28 @@
+<select class="btn btn-default navbar-btn" [(ngModel)]="url">
+   <option *ngFor="let x of activeContracts" [value]="x">{{x}}</option>
+</select>
+<button class="btn btn-default navbar-btn" (click)="loadModel()"> Mostrar Modelo </button>
+<button class="btn btn-default navbar-btn" (click)="goToDashborad()"> Voltar ao Menu Principal </button>
+<h4 class="panel-title">
+   <a data-toggle="collapse" href="#collapse10"> <strong> ProjetoIV - Luís Alonso Pinheiro - 17506 </strong> </a>
+   <img src="assets/transferir.jpeg" height="100px">
+   <div id="collapse10" class="panel-collapse collapse">
+     <div class="panel-body">
+         <div class="row">
+           <div class="col-lg-2">
+             <strong>Coordenador: Prof. António Miguel Ribeiro dos Santos Rosado da Cruz</strong>
+           </div>
+           <div class="col-lg-2">
+             <strong>Engenharia Informática 2020/2021</strong>
+           </div>
+           <div class="col-lg-2">
+             <strong>Instituto Politécnico de Viana do Castelo</strong>
+           </div>
+           <div class="col-lg-2">
+             <strong>Escola Superior de Tecnologia e Gestão</strong>
+           </div>
+         </div>
+       </div>
+ </div>
+</h4>
+<div id="canvas"></div>
